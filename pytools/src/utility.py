@@ -31,7 +31,7 @@ class _formatter:
         pass
 
     def _prefix(self):
-        return f"\033[{';'.join(str(p) for p in self._chain)}m"
+        return f"\x1B[{';'.join(str(p) for p in self._chain)}m"
 
     def __call__(self, *args, end="\n", sep=" ", file=None):
         print(f"{self._prefix()}", end="", file=file)
