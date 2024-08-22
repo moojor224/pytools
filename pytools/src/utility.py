@@ -33,12 +33,11 @@ class _formatter:
     def _prefix(self):
         return f"\x1B[{';'.join(str(p) for p in self._chain)}m"
 
-    def __call__(self, *args, end="\n", sep=" ", file=None):
-        print(f"{self._prefix()}", end="", file=file)
-        print(*args, end="", sep=sep, file=file)
+    def __call__(self, *args, **kwargs):
+        print(f"{self._prefix()}", end="", file=kwargs.get("file", None))
+        print(*args, **kwargs)
         if self._reset:
-            print(PrintStyles.RESET._prefix(), end="", file=file)
-        print(end, end="", file=file)
+            print(PrintStyles.RESET._prefix(), end="", file=kwargs.get("file", None))
 
     def __add__(self, other):
         newFormatter = _formatter()
