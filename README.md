@@ -19,8 +19,14 @@ import pytools
 ```
 
 
+## how to install
+```bash
+git clone https://github.com/moojor224/pytools.git
+cd pytools
+pip install .
+```
 
-## how to build locally
+## how to build
 ```bash
 git clone https://github.com/moojor224/pytools.git
 cd pytools
