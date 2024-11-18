@@ -31,6 +31,13 @@ class _formatter:
         pass
 
     def _prefix(self):
+        '''
+        the general format for forming the styling prefix is this:
+
+        \\x1B[\<style1>;\<style2>;...m
+
+        \\x1B can be entered manually on windows by pressint ALT + NUM 0, 2, 7
+        '''
         return f"\x1B[{';'.join(str(p) for p in self._chain)}m"
 
     def __call__(self, *args, **kwargs):
